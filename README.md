@@ -41,6 +41,15 @@ npm install cloudinary cors dotenv express mongoose nodemon openai
 ```
 Specifying "type":"module" in package.json below the description helps use the same import export statements as used in react.
 
+After adding the code for MongoDB connection in index.js and restarting the server (1:07:17), the server crashes since there is no Mongo DB Atlas URL added in the process.env.MONGODB_URL variable.
+
+Go to MongoDB atlas site and follow the instructions to create a new database for free. While connecting to the database, select the drivers method to connect to mongodb via the application. The full atlas string will be available  which you can save in a .env file.
+
+
+PostRoutes is for creating and retrieving the posts. DalleRoutes is for generating data from the OpenAI API.
+
+For OpenAI, since my credits had expired I had to use another email and phone number to login and generate a new API key. Till 1:28:00, the project is now able to generate images based on the prompt provided.
+
 
 
 Link for the youtube tutorial is [here](https://www.youtube.com/watch?v=EyIvuigqDoA).
