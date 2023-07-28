@@ -50,6 +50,7 @@ PostRoutes is for creating and retrieving the posts. DalleRoutes is for generati
 
 For OpenAI, since my credits had expired I had to use another email and phone number to login and generate a new API key. Till 1:28:00, the project is now able to generate images based on the prompt provided.
 
+Why use Cloudinary? Since it will host and store the images generated and make the image retrieval process faster.
 
 
 Link for the youtube tutorial is [here](https://www.youtube.com/watch?v=EyIvuigqDoA).
