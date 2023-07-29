@@ -50,9 +50,13 @@ PostRoutes is for creating and retrieving the posts. DalleRoutes is for generati
 
 For OpenAI, since my credits had expired I had to use another email and phone number to login and generate a new API key. Till 1:28:00, the project is now able to generate images based on the prompt provided.
 
-Why use Cloudinary? Since it will host and store the images generated and make the image retrieval process faster.
+Why use Cloudinary? Since it will host and store the images generated and make the image retrieval process faster. The approach to storing image data as shown in this tutorial is the best one since this is an actual efficient way to store data in real-life scenario and scale the application to a huge level. The approach is to get the image in base 64 format, upload it to cloudinary and get the Url for the same. This url can be stored in the database and used to quickly retrieve the picture at any time.
+
+UseEffect function in react is called in the beginning when the component loads.
 
 
 Link for the youtube tutorial is [here](https://www.youtube.com/watch?v=EyIvuigqDoA).
 
-Like "rfc", used "rafce" to generate a react component.
+"rfc": react functional component
+"rafce": to generate a react component.
+"afee": arrow snippet shorthand for ()=>{}
