@@ -1,28 +1,14 @@
-# OpenAIMernApp - MERN Application that integrates OpenAI 
-This is a project that is built using the four key frameworks of MERN stack: MongoDB, Express, Node and React. Additionally, the application also implements OpenAI as an added tool to generate Images based on some text input that can be specific according to user's interest or randomly generated.
+# OpenAIMernApp - MERN Application that integrates Stable Diffusion
+This application was originally built as a basic AI image generating ful-stack app, but was modified to use FastAPI and Go backends for a faster response time. The application still has a React frontend, but implements CORS for security reasons. There is also a connection established with MongoDB to store the images created on Cloudinary by the users.
 
-This is a MidJourney and Dall-E clone app.
-
-Cloudinary 
-
-## Steps to creating the app
-
-Run the command ``` npm install vite@latest``` to create an application folder structure from vite. Choose react and then Javascript to get started.
+The application uses Tailwind CSS for a dynamic user interface. Visual Studio Code was the main text editor used.
 
 
-### Install Tailwind CSS
+### Frontend
 
-Set up tailwindcss using the following commands:
-```bash
-npm install -D tailwindcss postcss autoprefixer
+The application deals with a React front base, hence it uses multiple folders like assets, components and pages to build the multi-page application.
 
-npx tailwindcss init -p
-```
-
-The second command creates the tailwind css and post css config files. 
-Install the Tailwind CSS extension for Visual Studio Code to use the intellisense while coding. In the Tailwind config file add the specific styles for the application and replace the assets folder from the github gist link as provided in the tutorial.
-
-Add 2 more folders: components and pages. Components will hold the code for reusable components while pages will hold the page layouts being shown on the app. There is another folder called constants defined that includes an index.js file with a list of prompts. These can be used to choose a random prompt in-case the user isn't sure about how to provide a text prompt to generate an image.
+Components will hold the code for reusable components while pages will hold the page layouts being shown on the app. There is another folder called constants defined that includes an index.js file with a list of prompts. These can be used to choose a random prompt in-case the user isn't sure about how to provide a text prompt to generate an image.
 
 
 ### Routing
@@ -35,28 +21,18 @@ In index.css add a link to import specific font styles.
 
 ## Backend
 
-Use  nodemon to start the backend project in start script. The following command installs the dependencies:
-```bash
-npm install cloudinary cors dotenv express mongoose nodemon openai
-```
-Specifying "type":"module" in package.json below the description helps use the same import export statements as used in react.
+The backend consists of 2 sections: A FastAPI server and a Gin server
 
-After adding the code for MongoDB connection in index.js and restarting the server (1:07:17), the server crashes since there is no Mongo DB Atlas URL added in the process.env.MONGODB_URL variable.
+### FastAPI server
 
-Go to MongoDB atlas site and follow the instructions to create a new database for free. While connecting to the database, select the drivers method to connect to mongodb via the application. The full atlas string will be available  which you can save in a .env file.
+There are multiple websites on the internet that provide image generation services like OpenAI and ImageGen, but they have to be subscribed to which can be expensive for students. Luckily I was able to implement the stable diffusion model from Inference API provided by Hugging Face since I do not have a GPU. FastAPI is very seamless and easy to implement a robust backend within very less time.
 
+The FastAPI section was also Dockerised to overcome storage restrictions and allow the app to be served on any machine.
 
-PostRoutes is for creating and retrieving the posts. DalleRoutes is for generating data from the OpenAI API.
+### Go Backend
 
-For OpenAI, since my credits had expired I had to use another email and phone number to login and generate a new API key. Till 1:28:00, the project is now able to generate images based on the prompt provided.
+I have used Gin framework to implement the Golang backend. I faced major hurdles while trying to connect due to CORS restrictions but could overcome them with the help of CoPilot suggestions. This server connects to MongoDB on startup and uses it to store and retrieve newly created images.
 
-Why use Cloudinary? Since it will host and store the images generated and make the image retrieval process faster. The approach to storing image data as shown in this tutorial is the best one since this is an actual efficient way to store data in real-life scenario and scale the application to a huge level. The approach is to get the image in base 64 format, upload it to cloudinary and get the Url for the same. This url can be stored in the database and used to quickly retrieve the picture at any time.
-
-UseEffect function in react is called in the beginning when the component loads.
-
-
-Link for the youtube tutorial is [here](https://www.youtube.com/watch?v=EyIvuigqDoA).
-
-"rfc": react functional component
-"rafce": to generate a react component.
-"afee": arrow snippet shorthand for ()=>{}
+![Homepage with all generated images](homep.png)
+![Search images generated by keywords in the prompt](searchim.png)
+![Create page](generateim.png)
