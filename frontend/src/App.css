@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
 }
 
 .logo {
@@ -39,4 +40,7 @@
 
 .read-the-docs {
   color: #888;
+}
+#headerClass{
+  background:transparent;
 }

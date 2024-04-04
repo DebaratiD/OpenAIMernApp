@@ -13,11 +13,13 @@ const CreatePost = () => {
   })
   const [generatingImg, setGeneratingImg] = useState(false);
   const [loading, setLoading] = useState(false)
+  //const [jpegImageData, setJpegImageData] = useState(null)
   const generateImg = async () => {
     if(form.prompt){
       try {
         setGeneratingImg(true);
-        const response = await fetch('http://localhost:8080/api/v1/dalle',{
+        //const response = await fetch('http://localhost:8080/api/v1/dalle',{
+          const response = await fetch('http://localhost:3000/create',{
           method: 'POST',
           headers:{
             'Content-Type': 'application/json',
@@ -26,6 +28,14 @@ const CreatePost = () => {
         })
 
         const data = await response.json()
+        // let uint8Array = new Uint8Array(data.photo);
+        // let rawImageData = {
+        //   data: uint8Array,
+        //   width: 512,
+        //   height: 512
+        // };
+        // let jpegImageData = jpeg-js.encode(rawImageData, 100);
+        // setJpegImageData(jpegImageData)
 
         setForm({ ...form, photo:`data:image/jpeg;base64,${data.photo}`})
       } catch (error) {
@@ -46,15 +56,15 @@ const CreatePost = () => {
     if(form.prompt && form.photo){
       setLoading(true);
       try {
-        const response = await fetch('http://localhost:8080/api/v1/post',{
+        const response = await fetch('http://localhost:8080/post/',{
           method:'POST',
           headers: {
-            'Content-Type':'application/json'
+            'Content-Type':'application/json; charset=utf-8'
           },
           body: JSON.stringify(form)
         })
 
-        await response.json();
+        const data = await response.json();
         navigate('/');
       } catch (err) {
         alert(err)
