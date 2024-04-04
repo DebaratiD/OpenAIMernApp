@@ -1,0 +1,6 @@
+requests
+fastapi
+uvicorn
+pydantic
+huggingface_hub
+Pillow
