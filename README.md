@@ -3,7 +3,7 @@
 ![Homepage with all generated images](homep.png)
 
 
-This application was originally built as a basic AI image generating ful-stack app, but was modified to use FastAPI and Go backends for a faster response time. The application still has a React frontend, but implements CORS for security reasons. There is also a connection established with MongoDB to store the images created on Cloudinary by the users.
+This application was originally built as a basic AI image generating full-stack app, but was modified to use FastAPI and Go backends for a faster response time. The application still has a React frontend, but implements CORS for security reasons. There is also a connection established with MongoDB to store the images created on Cloudinary by the users.
 
 The application uses Tailwind CSS for a dynamic user interface. Visual Studio Code was the main text editor used.
 
